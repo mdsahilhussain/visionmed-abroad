@@ -1,3 +1,34 @@
+import { Phone, VideoCamera, Whatsapp } from "iconoir-react"
+
+export const contactOptions: ContactOptions[] = [
+  {
+    title: "Chat on WhatsApp",
+    description: "Chat instantly with a counsellor",
+    icon: Whatsapp,
+    bgColor: "bg-green-500",
+    shadowColor: "shadow-[0_6px_24px_rgba(37,211,102,0.35)]",
+    actionLink: `https://wa.me/919900001111?text=${encodeURIComponent(
+      "Hello, I am interested in MBBS abroad counselling. Please provide more information."
+    )}`,
+  },
+  {
+    title: "Get Instant Callback",
+    description: "Call instantly with a counsellor",
+    icon: Phone,
+    bgColor: "bg-blue-500",
+    shadowColor: "shadow-[0_6px_24px_rgba(59,130,246,0.35)]",
+    actionLink: "tel:+919900001111",
+  },
+  {
+    title: "Book Video Counselling",
+    description: "Face-to-face guidance from an expert",
+    icon: VideoCamera,
+    bgColor: "bg-purple-500",
+    shadowColor: "shadow-[0_6px_24px_rgba(168,85,247,0.35)]",
+    actionLink: "https://calendly.com/visionmed-abroad/video-counselling",
+  },
+]
+
 export const teamMembers: TeamMember[] = [
   {
     photo: "/images/team/aisha-rao.webp",

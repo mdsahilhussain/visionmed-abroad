@@ -1,3 +1,4 @@
+import { type IconType } from "iconoir-react"; 
 declare global {
   interface TeamMember {
     photo: string
@@ -92,6 +93,15 @@ declare global {
       href: string
       imageSrc: string
     }[]
+  }
+
+  interface ContactOptions {
+    title: string
+    description: string
+    icon: IconType
+    actionLink: string
+    bgColor: string,
+    shadowColor: string,
   }
 }
 

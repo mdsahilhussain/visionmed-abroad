@@ -1,4 +1,5 @@
-import { Geist, Geist_Mono, Figtree } from "next/font/google"
+import { Geist_Mono, Figtree } from "next/font/google"
+import { Metadata } from "next";
 import "./globals.css"
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -10,6 +11,11 @@ const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 })
+
+export const metadata: Metadata = {
+  title: "VisionMed Abroad | MBBS Abroad Counselling",
+  description: "Trust-first MBBS abroad counselling with NMC/WHO-approved university shortlists."
+};
 
 export default function RootLayout({
   children,
