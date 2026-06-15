@@ -1,4 +1,5 @@
-import { Phone, VideoCamera, Whatsapp } from "iconoir-react"
+import { BadgeCheck, Building, Calendar, Globe, GraduationCap, Phone, VideoCamera, Whatsapp } from "iconoir-react"
+import { image } from "./image"
 
 export const contactOptions: ContactOptions[] = [
   {
@@ -83,36 +84,36 @@ export const teamMembers: TeamMember[] = [
 
 export const statistics: Statistic[] = [
   {
-    icon: "GraduationCap",
-    number: 12000,
+    icon: GraduationCap,
+    number: 500,
     label: "students guided",
     suffix: "+",
     section: "global",
   },
   {
-    icon: "Building2",
-    number: 50,
+    icon: Building,
+    number: 10,
     label: "NMC/WHO-approved universities",
     suffix: "+",
     section: "global",
   },
   {
-    icon: "Globe2",
-    number: 15,
+    icon: Globe,
+    number: 5,
     label: "countries covered",
     suffix: "+",
     section: "global",
   },
   {
-    icon: "BadgeCheck",
+    icon: BadgeCheck,
     number: 98,
     label: "visa documentation pass rate",
     suffix: "%",
     section: "global",
   },
   {
-    icon: "CalendarCheck",
-    number: 15,
+    icon: Calendar,
+    number: 5,
     label: "years in MBBS admissions",
     suffix: "+",
     section: "global",
@@ -317,28 +318,28 @@ export const whyUsPoints: WhyUsPoint[] = [
 export const processSteps: ProcessStep[] = [
   {
     number: 1,
-    icon: "MessagesSquare",
+    imageSrc: image.step_1,
     title: "Counselling",
     description:
       "A senior counsellor maps NEET score, budget, country preference and family priorities.",
   },
   {
     number: 2,
-    icon: "ListChecks",
+    imageSrc: image.step_2,
     title: "Shortlist",
     description:
       "You receive only NMC/WHO-approved options with total cost and risk notes.",
   },
   {
     number: 3,
-    icon: "FileSignature",
+    imageSrc: image.step_3,
     title: "Application",
     description:
       "We prepare and track the application pack, offer letter and university communication.",
   },
   {
     number: 4,
-    icon: "Stamp",
+    imageSrc: image.step_4,
     title: "Visa",
     description:
       "Documentation, interview prep and departure steps are verified before travel.",

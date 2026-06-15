@@ -14,7 +14,7 @@ declare global {
   }
 
   interface Statistic {
-    icon: string
+    icon: IconType
     number: number
     label: string
     suffix: string
@@ -55,7 +55,7 @@ declare global {
 
   interface ProcessStep {
     number: number
-    icon: string
+    imageSrc: StaticImageData
     title: string
     description: string
   }

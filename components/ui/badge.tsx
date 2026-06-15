@@ -15,17 +15,19 @@ const styles: Record<BadgeVariant, string> = {
 export function Badge({
     children,
     variant = "trust",
-    className
+    className,
+    isCard = false,
 }: {
     children: ReactNode;
     variant?: BadgeVariant;
     className?: string;
+    isCard?: boolean;
 }) {
     const Icon = variant === "gold-partner" ? Sparks : variant === "nmc" ? ShieldCheck : CheckCircle;
 
     return (
-        <span className={cn("inline-flex items-center gap-1.5 rounded-lg border px-3 py-1 text-xs md:text-base font-semibold backdrop-blur-md", styles[variant], className)}>
-            <Icon className="size-4" aria-hidden="true" color={"currentColor"} />
+        <span className={cn("inline-flex items-center gap-1.5 border font-medium backdrop-blur-md", isCard ? "rounded-full px-2 py-1 text-[10px] md:text-xs" : "rounded-lg px-3 py-1 text-sm md:text-base", styles[variant], className)}>
+            <Icon className="size-3 md:size-4" aria-hidden="true" color={"currentColor"} />
             {children}
         </span>
     );

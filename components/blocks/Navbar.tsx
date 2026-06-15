@@ -49,7 +49,7 @@ const Navbar = () => {
                   "hidden lg:inline-flex"
                 )}
               >
-                Apply Now
+                Book free session
               </Link>
 
               {/* Mobile menu button can go here */}

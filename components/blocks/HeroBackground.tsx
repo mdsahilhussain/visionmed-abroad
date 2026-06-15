@@ -81,8 +81,8 @@ export default function HeroBackgroundCarousel({
             />
 
             {/* Content */}
-            <div className="relative z-10 flex min-h-svh items-center px-4 py-16 sm:px-6 lg:px-8">
-                <div className="mx-auto w-full max-w-7xl">
+            <div className="relative z-10 flex min-h-svh items-center">
+                <div className="w-full">
                     {children}
                 </div>
             </div>
