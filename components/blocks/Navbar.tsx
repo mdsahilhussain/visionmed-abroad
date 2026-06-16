@@ -49,7 +49,7 @@ const Navbar = () => {
                   "hidden lg:inline-flex"
                 )}
               >
-                Book free session
+                Book a free counselling session
               </Link>
 
               {/* Mobile menu button can go here */}

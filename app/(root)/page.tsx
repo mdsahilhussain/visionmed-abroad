@@ -1,6 +1,6 @@
 import SectionHeader from "@/components/blocks/Header"
 import HeroBackgroundCarousel from "@/components/blocks/HeroBackground"
-import { Container } from "@/components/Container"
+import { Container } from "@/components/blocks/Container"
 import { LeadForm } from "@/components/leads/LeadForm"
 import { ProcessSteps } from "@/components/trust/ProcessSteps"
 import { TrustBadgeSet } from "@/components/trust/TrustBadgeSet"
@@ -13,13 +13,17 @@ import {
   AvatarGroupCount,
   AvatarImage,
 } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
 import {
   contactOptions,
   partnerUniversities,
   testimonials,
+  whyUsPoints,
 } from "@/content/data"
+import { image } from "@/content/image"
 import { cn } from "@/lib/utils"
-import { StarSolid } from "iconoir-react"
+import { ShieldCheck, StarSolid } from "iconoir-react"
+import Image from "next/image"
 import Link from "next/link"
 
 const ITEMS_COUNT = Array.from({ length: 5 })
@@ -69,7 +73,10 @@ export default function Page() {
       <section className="w-full">
         <div className="mb-12 flex w-full flex-col gap-12 lg:flex-row lg:items-start">
           <div className="flex w-full flex-col items-start gap-6 lg:w-3/5">
-            <SectionHeader eyebrow="Who we are" title="Welcome to VisionMed Abroad" />
+            <SectionHeader
+              eyebrow="Who we are"
+              title="Welcome to VisionMed Abroad"
+            />
             <p className="text-md max-w-2xl text-muted-foreground">
               For over [X] years, Vision Study MBBS Abroad has guided thousands
               of NEET-qualified students toward their dream of becoming doctors
@@ -109,16 +116,54 @@ export default function Page() {
         <TrustStatsBar />
       </section>
       <section className="w-full">
-        <SectionHeader eyebrow="Our Partner universities" title="Only NMC/WHO-approved universities shown" />
-        <div className="mt-8 flex gap-6 overflow-x-auto pb-3 md:grid md:grid-cols-3 md:overflow-visible">
+        <SectionHeader
+          eyebrow="Our Partner universities"
+          title="Only NMC/WHO-approved universities shown"
+        />
+        <div className="mt-12 flex gap-6 overflow-x-auto pb-3 md:grid md:grid-cols-3 md:overflow-visible">
           {partnerUniversities.map((university) => (
             <UniversityCard key={university.slug} university={university} />
           ))}
         </div>
       </section>
       <section className="w-full">
-        <SectionHeader eyebrow="Full service package" title="How we help you to get an admission for medicine at the university of your dreams." />
-        <ProcessSteps/>
+        <SectionHeader
+          eyebrow="Full service package"
+          title="How we help you to get an admission for medicine at the university of your dreams."
+        />
+        <ProcessSteps />
+      </section>
+      <section className="w-full">
+        <SectionHeader
+          eyebrow="Organization snapshot"
+          title="Compliance, clarity and counsellor ownership"
+        />
+        <div className="mt-12 flex items-start gap-12">
+          <div className="flex flex-col gap-4">
+            {whyUsPoints.slice(0, 5).map((point) => (
+              <div
+                key={point.headline}
+                className="flex items-start gap-3 rounded-xl bg-muted p-4"
+              >
+                <ShieldCheck className="text-success size-8 shrink-0" />
+                <div className="flex flex-col items-start gap-1">
+                  <h3 className="text-lg font-semibold">{point.headline}</h3>
+                  <p className="text-sm text-muted-foreground">{point.body}</p>
+                </div>
+              </div>
+            ))}
+            <Button className="w-full" variant={"default"} size={"lg"}>
+              Book a free counselling session
+            </Button>
+          </div>
+          <Image
+            src={image.counselling_process}
+            alt="counselling process image"
+            width={480}
+            height={380}
+            className="rounded-2xl"
+          />
+        </div>
       </section>
     </Container>
   )

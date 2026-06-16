@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import { FormEvent, useMemo, useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Input } from "../ui/input";
+import { FormEvent, useMemo, useState } from "react"
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
+import { Button } from "@/components/ui/button"
+import { Input } from "../ui/input"
 import {
   Select,
   SelectContent,
@@ -11,39 +11,36 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
-import { ShieldCheck } from "iconoir-react";
-import { cn } from "@/lib/utils";
-import { partnerUniversities, teamMembers } from "@/content/data";
+} from "../ui/select"
+import { ShieldCheck } from "iconoir-react"
+import { cn } from "@/lib/utils"
+import { partnerUniversities, teamMembers } from "@/content/data"
 
-type LeadFormVariant = "hero" | "inline" | "sidebar" | "exit-popup";
+type LeadFormVariant = "hero" | "inline" | "sidebar" | "exit-popup"
 
 interface LeadFormProps {
-  variant?: LeadFormVariant;
+  variant?: LeadFormVariant
   defaults?: {
-    neet?: string;
-    country?: string;
-  };
+    neet?: string
+    country?: string
+  }
 }
 
-export function LeadForm({
-  variant = "hero",
-  defaults,
-}: LeadFormProps) {
-  const [submitted, setSubmitted] = useState(false);
+export function LeadForm({ variant = "hero", defaults }: LeadFormProps) {
+  const [submitted, setSubmitted] = useState(false)
 
   const countries = useMemo(
     () => [...new Set(partnerUniversities.map((u) => u.country))],
     []
-  );
+  )
 
-  const counsellor = teamMembers[0];
+  const counsellor = teamMembers[0] ?? { name: "Our Team", experience: 10 }
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+    event.preventDefault()
 
     // TODO: Connect with API
-    setSubmitted(true);
+    setSubmitted(true)
   }
 
   return (
@@ -51,14 +48,14 @@ export function LeadForm({
       onSubmit={onSubmit}
       aria-label="Free MBBS counselling form"
       className={cn(
-        "flex h-full w-full lg:max-w-md flex-col rounded-2xl",
+        "flex h-full w-full flex-col rounded-2xl lg:max-w-md",
         "border border-border bg-primary-foreground p-5 md:p-6",
         "backdrop-blur-xl",
         "shadow-[0_12px_36px_rgba(15,23,42,0.12)]",
         "transition-all duration-300 hover:shadow-[0_18px_48px_rgba(15,23,42,0.18)]",
         "transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]",
         variant === "inline" &&
-        "max-w-none gap-3 md:grid md:grid-cols-[1fr_1fr_auto] md:items-end"
+          "max-w-none gap-3 md:grid md:grid-cols-[1fr_1fr_auto] md:items-end"
       )}
     >
       {variant === "hero" && (
@@ -68,9 +65,7 @@ export function LeadForm({
               src="https://github.com/shadcn.png"
               alt={counsellor.name}
             />
-            <AvatarFallback>
-              {counsellor.name.charAt(0)}
-            </AvatarFallback>
+            <AvatarFallback>{counsellor.name.charAt(0)}</AvatarFallback>
           </Avatar>
 
           <div>
@@ -85,10 +80,7 @@ export function LeadForm({
       )}
 
       <div
-        className={cn(
-          "grid gap-4",
-          variant !== "inline" && "md:grid-cols-1"
-        )}
+        className={cn("grid gap-4", variant !== "inline" && "md:grid-cols-1")}
       >
         <label className="grid gap-1.5 text-sm font-medium">
           <span>Name</span>
@@ -128,20 +120,15 @@ export function LeadForm({
             </label>
 
             <div className="grid gap-1.5">
-              <span className="text-sm font-medium">
-                Preferred Country
-              </span>
-              <Select defaultValue={defaults?.country}>
+              <span className="text-sm font-medium">Preferred Country</span>
+              <Select name="country" defaultValue={defaults?.country}>
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select country" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
                     {countries.map((country) => (
-                      <SelectItem
-                        key={country}
-                        value={country}
-                      >
+                      <SelectItem key={country} value={country}>
                         {country}
                       </SelectItem>
                     ))}
@@ -157,14 +144,9 @@ export function LeadForm({
       <div className="mt-auto pt-5">
         <Button
           type="submit"
-          className={cn(
-            "w-full",
-            variant === "inline" && "md:w-auto"
-          )}
+          className={cn("w-full", variant === "inline" && "md:w-auto")}
         >
-          {submitted
-            ? "Request Received ✓"
-            : "Book Free Session"}
+          {submitted ? "Request Received ✓" : "Book Free Session"}
         </Button>
 
         <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-muted-foreground">
@@ -173,5 +155,5 @@ export function LeadForm({
         </p>
       </div>
     </form>
-  );
+  )
 }

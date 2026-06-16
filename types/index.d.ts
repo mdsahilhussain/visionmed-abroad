@@ -1,4 +1,5 @@
 import { type IconType } from "iconoir-react"; 
+import { StaticImageData } from "next/image";
 declare global {
   interface TeamMember {
     photo: string

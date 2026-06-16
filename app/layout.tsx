@@ -1,11 +1,10 @@
 import { Geist_Mono, Figtree } from "next/font/google"
-import { Metadata } from "next";
+import { Metadata } from "next"
 import "./globals.css"
-import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { Navbar } from "@/components/blocks/Navbar";
+import { cn } from "@/lib/utils"
+import { ThemeProvider } from "@/components/ThemeProvider"
 
-const figtree = Figtree({ subsets: ['latin'], variable: '--font-sans' })
+const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" })
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -14,8 +13,9 @@ const fontMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "VisionMed Abroad | MBBS Abroad Counselling",
-  description: "Trust-first MBBS abroad counselling with NMC/WHO-approved university shortlists."
-};
+  description:
+    "Trust-first MBBS abroad counselling with NMC/WHO-approved university shortlists.",
+}
 
 export default function RootLayout({
   children,
@@ -26,7 +26,12 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", figtree.variable)}
+      className={cn(
+        "antialiased",
+        fontMono.variable,
+        "font-sans",
+        figtree.variable
+      )}
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>
