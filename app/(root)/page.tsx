@@ -14,17 +14,15 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import {
-  contactOptions,
-  partnerUniversities,
-  testimonials,
-  whyUsPoints,
-} from "@/content/data"
+import { contactOptions, testimonials, whyUsPoints } from "@/content/data"
 import { image } from "@/content/image"
 import { cn } from "@/lib/utils"
-import { ShieldCheck, StarSolid } from "iconoir-react"
+import { StarSolid } from "iconoir-react"
 import Image from "next/image"
 import Link from "next/link"
+import { partnerUniversities } from "@/content/data/universities"
+import { gallery_images } from "@/content/gallery_image"
+import Testimonial from "@/components/blocks/Testimonial"
 
 const ITEMS_COUNT = Array.from({ length: 5 })
 
@@ -138,14 +136,14 @@ export default function Page() {
           eyebrow="Organization snapshot"
           title="Compliance, clarity and counsellor ownership"
         />
-        <div className="mt-12 flex items-start gap-12">
+        <div className="mt-12 flex flex-col items-start gap-12 lg:flex-row">
           <div className="flex flex-col gap-4">
             {whyUsPoints.slice(0, 5).map((point) => (
               <div
                 key={point.headline}
                 className="flex items-start gap-3 rounded-xl bg-muted p-4"
               >
-                <ShieldCheck className="text-success size-8 shrink-0" />
+                <point.icon className="text-success size-8 shrink-0" />
                 <div className="flex flex-col items-start gap-1">
                   <h3 className="text-lg font-semibold">{point.headline}</h3>
                   <p className="text-sm text-muted-foreground">{point.body}</p>
@@ -159,12 +157,39 @@ export default function Page() {
           <Image
             src={image.counselling_process}
             alt="counselling process image"
-            width={480}
-            height={380}
-            className="rounded-2xl"
+            width={415}
+            height={100}
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+            className="w-full rounded-2xl lg:w-auto"
           />
         </div>
       </section>
+      <section className="w-full">
+        <SectionHeader
+          eyebrow="SUCCESS • EVENTS • CELEBRATIONS"
+          title="Recent Photo Gallery"
+          jump_link={true}
+        />
+        <div className="mt-12 flex gap-6 overflow-x-auto pb-3 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
+          {gallery_images.map((image, index) => (
+            <div
+              key={index}
+              className="relative h-56 w-70 shrink-0 overflow-hidden rounded-2xl border border-border md:h-64 md:w-full"
+            >
+              <Image
+                src={image}
+                alt={`Gallery image ${index + 1}`}
+                fill
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                className="object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+      <Testimonial />
     </Container>
   )
 }

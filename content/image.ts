@@ -3,7 +3,7 @@ import step_1 from "@/public/images/step-1.webp"
 import step_2 from "@/public/images/step-2.webp"
 import step_3 from "@/public/images/step-3.webp"
 import step_4 from "@/public/images/step-4.webp"
-import counselling_process from "@/public/images/counselling_process .webp"
+import counselling_process from "@/public/images/counselling_process.webp"
 
 export const image = {
   brand_logo,

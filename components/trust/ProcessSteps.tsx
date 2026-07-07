@@ -19,6 +19,7 @@ export function ProcessSteps() {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
             width={256}
             height={256}
+            loading="lazy"
           />
           <h3 className="mt-1 text-2xl font-semibold text-foreground">
             {step.title}

@@ -18,8 +18,9 @@ export function UniversityCard({
         height={675}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
         className="aspect-video w-full rounded-xl object-cover transition-all duration-300 group-hover:brightness-100"
-        priority={false}
+        loading="lazy"
       />
+
       <div className="flex flex-col items-start gap-3 p-0 md:p-2">
         <span>
           <h3 className="text-base font-semibold text-foreground md:text-lg">

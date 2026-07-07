@@ -8,8 +8,10 @@ import { NavArrowDown } from "iconoir-react"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { useOnClickOutside } from "@/hooks/use-on-click-outside"
-import { navbarCategories } from "@/content/data"
 import { image } from "@/content/image"
+import UniversityMegaMenu from "./UniversityMegaMenu"
+import { navbarCategories } from "@/content/data"
+import { partnerCountries } from "@/content/data/universities"
 
 const Navbar = () => {
   return (
@@ -159,43 +161,16 @@ const NavItem = ({
       {isOpen && category.featured && (
         <div
           className={cn(
-            "absolute top-full left-1/2 z-50 mt-2 w-screen max-w-5xl -translate-x-1/2",
+            "absolute top-full left-1/2 z-50 mt-6 w-screen max-w-4xl -translate-x-1/2",
             {
               "animate-in duration-200 fade-in-0 zoom-in-95": !isAnyOpen,
             }
           )}
         >
           <div className="overflow-hidden rounded-2xl border bg-background shadow-2xl">
-            <div className="grid grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-3">
-              {category.items?.map(
-                (item: { name: string; href: string; imageSrc: string }) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    onClick={close}
-                    className="group block rounded-xl p-2 transition-colors hover:bg-muted"
-                  >
-                    <div className="relative aspect-video overflow-hidden rounded-lg bg-muted">
-                      <Image
-                        src={item.imageSrc}
-                        alt={item.name}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
-
-                    <h3 className="mt-3 font-medium text-foreground">
-                      {item.name}
-                    </h3>
-
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      Read more
-                    </p>
-                  </Link>
-                )
+              {category.menuType === "universities" && (
+                <UniversityMegaMenu countries={partnerCountries} />
               )}
-            </div>
           </div>
         </div>
       )}

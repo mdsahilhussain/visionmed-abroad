@@ -1,5 +1,6 @@
-import { BadgeCheck, Building, Calendar, Globe, GraduationCap, Phone, VideoCamera, Whatsapp } from "iconoir-react"
+import { BadgeCheck, Building, Calendar, Globe, GraduationCap, Headset, Page, PageStar, Phone, ShieldCheck, User, VideoCamera, Whatsapp } from "iconoir-react"
 import { image } from "./image"
+import { partnerCountries } from "./data/universities"
 
 export const contactOptions: ContactOptions[] = [
   {
@@ -185,100 +186,9 @@ export const testimonials: Testimonial[] = [
   },
 ]
 
-export const partnerUniversities: PartnerUniversity[] = [
-  {
-    logo: "/images/universities/tbilisi.webp",
-    name: "Tbilisi State Medical University",
-    country: "Georgia",
-    city: "Tbilisi",
-    verifiedPartner: true,
-    studentsPlaced: 640,
-    feeRangePerYear: "INR 4.8L-5.6L",
-    nmcApproved: true,
-    slug: "tbilisi-state-medical-university",
-  },
-  {
-    logo: "/images/universities/kazan.webp",
-    name: "Kazan Federal University",
-    country: "Russia",
-    city: "Kazan",
-    verifiedPartner: true,
-    studentsPlaced: 520,
-    feeRangePerYear: "INR 5.2L-6.1L",
-    nmcApproved: true,
-    slug: "kazan-federal-university",
-  },
-  {
-    logo: "/images/universities/samarkand.webp",
-    name: "Samarkand State Medical University",
-    country: "Uzbekistan",
-    city: "Samarkand",
-    verifiedPartner: true,
-    studentsPlaced: 710,
-    feeRangePerYear: "INR 3.4L-4.2L",
-    nmcApproved: true,
-    slug: "samarkand-state-medical-university",
-  },
-  {
-    logo: "/images/universities/astana.webp",
-    name: "Astana Medical University",
-    country: "Kazakhstan",
-    city: "Astana",
-    verifiedPartner: false,
-    studentsPlaced: 360,
-    feeRangePerYear: "INR 3.8L-4.9L",
-    nmcApproved: true,
-    slug: "astana-medical-university",
-  },
-  {
-    logo: "/images/universities/yerevan.webp",
-    name: "Yerevan State Medical University",
-    country: "Armenia",
-    city: "Yerevan",
-    verifiedPartner: true,
-    studentsPlaced: 430,
-    feeRangePerYear: "INR 4.1L-5.0L",
-    nmcApproved: true,
-    slug: "yerevan-state-medical-university",
-  },
-  {
-    logo: "/images/universities/osh.webp",
-    name: "Osh State University",
-    country: "Kyrgyzstan",
-    city: "Osh",
-    verifiedPartner: false,
-    studentsPlaced: 390,
-    feeRangePerYear: "INR 2.9L-3.7L",
-    nmcApproved: true,
-    slug: "osh-state-university",
-  },
-  {
-    logo: "/images/universities/bukhara.webp",
-    name: "Bukhara State Medical Institute",
-    country: "Uzbekistan",
-    city: "Bukhara",
-    verifiedPartner: true,
-    studentsPlaced: 470,
-    feeRangePerYear: "INR 3.2L-4.0L",
-    nmcApproved: true,
-    slug: "bukhara-state-medical-institute",
-  },
-  {
-    logo: "/images/universities/batumi.webp",
-    name: "Batumi Shota Rustaveli State University",
-    country: "Georgia",
-    city: "Batumi",
-    verifiedPartner: false,
-    studentsPlaced: 280,
-    feeRangePerYear: "INR 4.5L-5.4L",
-    nmcApproved: true,
-    slug: "batumi-shota-rustaveli-state-university",
-  },
-]
-
 export const whyUsPoints: WhyUsPoint[] = [
   {
-    icon: "ShieldCheck",
+    icon: ShieldCheck,
     headline: "NMC-first shortlisting",
     body: "Every recommendation starts with current NMC/WHO approval, medium of instruction, duration and internship clarity.",
     studentQuote:
@@ -286,28 +196,28 @@ export const whyUsPoints: WhyUsPoint[] = [
     order: 1,
   },
   {
-    icon: "ReceiptText",
+    icon: Page,
     headline: "Real total cost clarity",
     body: "Tuition, hostel, food, visa, travel and first-year setup are shown before application fees.",
     studentQuote: "My parents had one sheet with every expected rupee.",
     order: 2,
   },
   {
-    icon: "UsersRound",
+    icon: User,
     headline: "Counsellor-led admission",
     body: "Students work with named counsellors instead of anonymous call-center handoffs.",
     studentQuote: "We spoke to the same person from shortlist to visa.",
     order: 3,
   },
   {
-    icon: "FileCheck2",
+    icon: PageStar,
     headline: "Document verification discipline",
     body: "Marksheets, passport, offer letter, translation and visa packs are checked through a structured process.",
     studentQuote: "The second review caught an address mismatch.",
     order: 4,
   },
   {
-    icon: "PlaneTakeoff",
+    icon: Headset,
     headline: "Post-admission support",
     body: "Departure briefing, campus arrival coordination and parent WhatsApp updates continue after admission.",
     studentQuote: "The first week abroad felt planned, not improvised.",
@@ -391,7 +301,7 @@ export const blogPosts: BlogPost[] = [
   },
 ]
 
-export const navbarCategories: NavbarCategories[] = [
+export const navbarCategories: NavbarCategory[] = [
   {
     name: "About us",
     label: "about-us",
@@ -401,33 +311,15 @@ export const navbarCategories: NavbarCategories[] = [
     name: "Universities",
     label: "universities",
     featured: true,
-    items: partnerUniversities.map((u) => ({
-      name: u.name,
-      href: `/universities/${u.slug}`,
-      imageSrc: u.logo,
-    })),
+    menuType:"universities",
+    items: partnerCountries
   },
   {
     name: "Tools",
     label: "tools",
     featured: true,
-    items: [
-      {
-        name: "Editor picks",
-        href: `/products?category=ui_kits`,
-        imageSrc: "/nav/ui-kits/mixed.jpg",
-      },
-      {
-        name: "New Arrivals",
-        href: "/products?category=ui_kits&sort=desc",
-        imageSrc: "/nav/ui-kits/blue.jpg",
-      },
-      {
-        name: "Bestsellers",
-        href: "/products?category=ui_kits",
-        imageSrc: "/nav/ui-kits/purple.jpg",
-      },
-    ],
+    menuType: 'tools',
+    items: []
   },
   {
     name: "Why Us",

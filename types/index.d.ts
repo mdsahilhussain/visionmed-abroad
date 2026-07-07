@@ -1,5 +1,5 @@
-import { type IconType } from "iconoir-react"; 
-import { StaticImageData } from "next/image";
+import { type IconType } from "iconoir-react"
+import { StaticImageData } from "next/image"
 declare global {
   interface TeamMember {
     photo: string
@@ -46,8 +46,21 @@ declare global {
     slug: string
   }
 
+  interface University {
+    name: string
+    slug: string
+  }
+
+  interface Country {
+    id: string
+    name: string
+    slug: string
+    flag: string
+    universities: University[]
+  }
+
   interface WhyUsPoint {
-    icon: string
+    icon: IconType
     headline: string
     body: string
     studentQuote: string
@@ -77,23 +90,39 @@ declare global {
   }
 
   interface NavItemProps {
-    category: Category
+    category: NavbarCategory
     handleOpen: () => void
     close: () => void
     isOpen: boolean
     isAnyOpen: boolean
   }
 
-  interface NavbarCategories {
-    name: string
-    label: string
-    href?: string
-    featured?: boolean
-    items?: {
-      name: string
-      href: string
-      imageSrc: string
-    }[]
+  type NavbarItem =
+  | Country
+  | Tool
+  | SimpleMenuItem;
+
+  interface NavbarCategory {
+    name: string;
+    label: string;
+    href?: string;
+    featured?: boolean;
+    menuType?: 'universities' | 'tools'
+    items?: NavbarItem[];
+  }
+
+  export interface SimpleMenuItem {
+    type: "link";
+    name: string;
+    href: string;
+    imageSrc?: string;
+  }
+
+  export interface Tool {
+    type: "tool";
+    name: string;
+    href: string;
+    icon: string;
   }
 
   interface ContactOptions {
@@ -101,8 +130,8 @@ declare global {
     description: string
     icon: IconType
     actionLink: string
-    bgColor: string,
-    shadowColor: string,
+    bgColor: string
+    shadowColor: string
   }
 }
 
