@@ -1,74 +1,87 @@
 "use client"
-
-import Link from "next/link"
-import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
 import { NavArrowDown } from "iconoir-react"
 
 import { Button, buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { useOnClickOutside } from "@/hooks/use-on-click-outside"
+
 import { image } from "@/content/image"
+
+import { useOnClickOutside } from "@/hooks/use-on-click-outside"
 import UniversityMegaMenu from "./UniversityMegaMenu"
-import { navbarCategories } from "@/content/data"
 import { partnerCountries } from "@/content/data/universities"
+import { navbarCategories } from "@/content/data"
+import MobileNav from "./MobileNav"
 
 const Navbar = () => {
   return (
-    <div className="sticky inset-x-0 top-0 z-50">
-      <header className="relative w-full">
-        <div className="border-b py-4 backdrop-blur-md transition-all duration-300">
-          <div className="mx-auto flex h-fit max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-            {/* Mobile Navigation */}
-            {/* <MobileNav /> */}
+    <header className="sticky top-0 z-50 w-full border-b bg-background/40 backdrop-blur-xl">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Logo */}
+        <Link
+          href="/"
+          aria-label="Go to homepage"
+          className="flex shrink-0 items-center gap-3"
+        >
+          <Image
+            src={image.brand_logo}
+            alt="Vision Study MBBS Abroad"
+            width={64}
+            height={64}
+            priority
+            className="h-14 w-14"
+          />
 
-            {/* Logo */}
-            <Link href="/" aria-label="Go to homepage">
-              <Image
-                src={image.brand_logo}
-                alt="Logo"
-                width={100}
-                height={100}
-                loading="eager"
-                className="size-16"
-              />
-            </Link>
+          <div className="hidden xl:block">
+            <h2 className="text-base leading-none font-bold uppercase">
+              Vision Study
+            </h2>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex lg:h-full lg:items-stretch">
-              <NavItemsContainer />
-            </div>
+            <p className="text-sm text-muted-foreground">MBBS Abroad</p>
+          </div>
+        </Link>
 
-            {/* CTA */}
-            <div className="flex items-center">
-              <Link
-                href="/"
-                className={cn(
-                  buttonVariants({
-                    variant: "default",
-                    size: "lg",
-                  }),
-                  "hidden lg:inline-flex"
-                )}
-              >
-                Book a free counselling session
-              </Link>
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex">
+          <DesktopNav />
+        </div>
 
-              {/* Mobile menu button can go here */}
-            </div>
+        {/* Right Side */}
+        <div className="flex items-center gap-3">
+          <Link
+            href="/contact"
+            className={cn(
+              buttonVariants({
+                size: "lg",
+              }),
+              "hidden lg:inline-flex"
+            )}
+          >
+            Book Free Counselling
+          </Link>
+
+          {/* Mobile Menu */}
+          <div className="lg:hidden">
+            <MobileNav />
           </div>
         </div>
-      </header>
-    </div>
+      </div>
+    </header>
   )
 }
 
-const NavItemsContainer = () => {
+export default Navbar
+
+const DesktopNav = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
   const navRef = useRef<HTMLDivElement>(null)
 
-  useOnClickOutside(navRef, () => setActiveIndex(null))
+  useOnClickOutside(navRef, () => {
+    setActiveIndex(null)
+  })
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -82,100 +95,72 @@ const NavItemsContainer = () => {
     return () => {
       document.removeEventListener("keydown", handler)
     }
-  }, [setActiveIndex])
-
-  const isAnyOpen = activeIndex !== null
+  }, [])
 
   return (
     <nav
       ref={navRef}
-      className="flex h-full gap-2"
-      aria-label="Primary navigation"
+      className="flex items-center gap-2"
+      aria-label="Desktop Navigation"
     >
-      {navbarCategories.map((category, i) => {
-        const isOpen = activeIndex === i
-
-        const handleOpen = () => {
-          if (!category.featured) return
-
-          setActiveIndex((prev) => (prev === i ? null : i))
-        }
+      {navbarCategories.map((category, index) => {
+        const isOpen = activeIndex === index
 
         return (
-          <NavItem
+          <div
             key={category.label}
-            category={category}
-            isOpen={isOpen}
-            isAnyOpen={isAnyOpen}
-            handleOpen={handleOpen}
-            close={() => setActiveIndex(null)}
-          />
+            className="relative"
+            onMouseLeave={() => setActiveIndex(null)}
+          >
+            {/* Normal Link */}
+            {!category.featured && category.href ? (
+              <Link
+                href={category.href}
+                className={cn(
+                  buttonVariants({
+                    variant: "ghost",
+                  }),
+                  "h-11 px-4"
+                )}
+              >
+                {category.name}
+              </Link>
+            ) : (
+              <>
+                <Button
+                  variant="ghost"
+                  className="h-11 gap-1.5 px-4"
+                  onMouseEnter={() => setActiveIndex(index)}
+                  onClick={() =>
+                    setActiveIndex((prev) => (prev === index ? null : index))
+                  }
+                >
+                  {category.name}
+
+                  <NavArrowDown
+                    strokeWidth={3}
+                    className={cn(
+                      "h-5 w-5 transition-transform duration-200",
+                      isOpen && "rotate-180"
+                    )}
+                  />
+                </Button>
+
+                {/* Mega Menu */}
+                {isOpen && (
+                  <div className="absolute top-full left-1/2 z-50 pt-5 w-225 -translate-x-1/2">
+                    <div className="rounded-3xl border bg-background p-10 shadow-2xl">
+                      {category.menuType === "universities" && (
+                        <UniversityMegaMenu countries={partnerCountries} />
+                      )}
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
         )
       })}
     </nav>
   )
 }
-
-const NavItem = ({
-  category,
-  isAnyOpen,
-  isOpen,
-  handleOpen,
-  close,
-}: NavItemProps) => {
-  return (
-    <div className="relative flex">
-      <div className="flex items-center">
-        {category.href && !category.featured ? (
-          <Link
-            href={category.href}
-            className={cn(
-              buttonVariants({ variant: "ghost" }),
-              "h-auto gap-1.5 px-3 py-2"
-            )}
-          >
-            {category.name}
-          </Link>
-        ) : (
-          <Button
-            variant="ghost"
-            className="gap-1.5"
-            onClick={handleOpen}
-            aria-expanded={isOpen}
-            aria-haspopup="menu"
-          >
-            {category.name}
-            <NavArrowDown
-              className={cn(
-                "size-5 text-muted-foreground transition-transform duration-200",
-                {
-                  "rotate-180": isOpen,
-                }
-              )}
-              strokeWidth={3}
-            />
-          </Button>
-        )}
-      </div>
-
-      {isOpen && category.featured && (
-        <div
-          className={cn(
-            "absolute top-full left-1/2 z-50 mt-6 w-screen max-w-4xl -translate-x-1/2",
-            {
-              "animate-in duration-200 fade-in-0 zoom-in-95": !isAnyOpen,
-            }
-          )}
-        >
-          <div className="overflow-hidden rounded-2xl border bg-background shadow-2xl">
-              {category.menuType === "universities" && (
-                <UniversityMegaMenu countries={partnerCountries} />
-              )}
-          </div>
-        </div>
-      )}
-    </div>
-  )
-}
-
-export { Navbar }

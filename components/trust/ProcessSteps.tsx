@@ -10,7 +10,7 @@ export function ProcessSteps() {
           key={step.number}
           className="relative min-w-70 rounded-2xl border border-border bg-primary-foreground p-5"
         >
-          <div className="absolute -top-8 right-4 flex size-18 items-center justify-center rounded-full bg-foreground">
+          <div className="absolute -top-8 right-4 flex size-18 items-center justify-center rounded-full bg-foreground z-2">
             <p className="text-3xl font-bold text-background">{step.number}.</p>
           </div>
           <Image

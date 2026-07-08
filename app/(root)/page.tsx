@@ -118,7 +118,7 @@ export default function Page() {
           eyebrow="Our Partner universities"
           title="Only NMC/WHO-approved universities shown"
         />
-        <div className="mt-12 flex gap-6 overflow-x-auto pb-3 md:grid md:grid-cols-3 md:overflow-visible">
+        <div className="mt-12 flex gap-6 overflow-x-auto pb-3 scrollbar-hide md:grid md:grid-cols-3 md:overflow-visible">
           {partnerUniversities.map((university) => (
             <UniversityCard key={university.slug} university={university} />
           ))}
@@ -171,7 +171,7 @@ export default function Page() {
           title="Recent Photo Gallery"
           jump_link={true}
         />
-        <div className="mt-12 flex gap-6 overflow-x-auto pb-3 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
+        <div className="mt-12 flex gap-6 overflow-x-auto pb-3 scrollbar-hide md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
           {gallery_images.map((image, index) => (
             <div
               key={index}

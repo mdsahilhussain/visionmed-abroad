@@ -9,12 +9,12 @@ export default function UniversityMegaMenu({
   countries,
 }: UniversityMegaMenuProps) {
   return (
-    <div className="p-12">
-      <h3 className="mb-8 text-2xl font-semibold text-orange-500">
+    <>
+      <h3 className="text-2xl font-semibold text-orange-500">
         All universities at a glance
       </h3>
 
-      <div className="grid grid-cols-3 gap-x-16 gap-y-10">
+      <div className="grid grid-cols-1 gap-x-16 gap-y-10 md:grid-cols-3">
         {countries.map((country) => (
           <div key={country.id}>
             <div className="mb-4 flex items-center gap-3">
@@ -47,6 +47,6 @@ export default function UniversityMegaMenu({
           </div>
         ))}
       </div>
-    </div>
+    </>
   )
 }
