@@ -9,7 +9,6 @@ const HERO_IMAGES = [
   universities_images.PERM_SMU.src,
   universities_images.PSKOV_SMU.src,
   universities_images.TVER_SMU.src,
-  universities_images.KALMYK_SMU.src,
   universities_images.MARI_SMU.src,
 ]
 

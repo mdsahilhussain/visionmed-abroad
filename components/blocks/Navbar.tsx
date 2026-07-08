@@ -148,7 +148,7 @@ const DesktopNav = () => {
 
                 {/* Mega Menu */}
                 {isOpen && (
-                  <div className="absolute top-full left-1/2 z-50 pt-5 w-225 -translate-x-1/2">
+                  <div className="absolute top-full left-1/2 z-50 w-225 -translate-x-1/2 pt-5">
                     <div className="rounded-3xl border bg-background p-10 shadow-2xl">
                       {category.menuType === "universities" && (
                         <UniversityMegaMenu countries={partnerCountries} />
