@@ -30,9 +30,12 @@ export function TrustStatsBar() {
   const inView = useInView(ref, { once: true, margin: "-80px" })
 
   return (
-    <div ref={ref} className="grid w-full grid-cols-3 gap-4 lg:grid-cols-3">
+    <div
+      ref={ref}
+      className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3"
+    >
       {statistics.map((stat) => (
-        <Card key={stat.label} className="p-6 flex-row-reverse justify-between">
+        <Card key={stat.label} className="flex-row-reverse justify-between p-6">
           <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-orange-500/10">
             <stat.icon className="h-6 w-6 text-orange-500" />
           </div>

@@ -46,7 +46,6 @@ export default function AboutPage() {
 
       <OurStory story={aboutPage.story} whoWeAre={aboutPage.whoWeAre} />
       <MissionVision mission={aboutPage.mission} vision={aboutPage.vision} />
-      {/* <StatsStrip stats={aboutPage.stats} /> */}
       <TrustStatsBar/>
       <WhyChooseUs whyChooseUs={aboutPage.whyChooseUs} />
       <ServicesList services={aboutPage.services} />
