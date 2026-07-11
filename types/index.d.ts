@@ -1,5 +1,6 @@
 import { type IconType } from "iconoir-react"
 import { StaticImageData } from "next/image"
+import { MbbsCountryData } from "./mbbs-country"
 declare global {
   interface TeamMember {
     photo: string
@@ -97,41 +98,38 @@ declare global {
     isAnyOpen: boolean
   }
 
-  type NavbarItem =
-  | Country
-  | Tool
-  | SimpleMenuItem;
+  type NavbarItem = Country | Tool | SimpleMenuItem
 
   interface NavbarCategory {
-    name: string;
-    label: string;
-    href?: string;
-    featured?: boolean;
-    menuType?: 'universities' | 'tools'
-    items?: NavbarItem[];
+    name: string
+    label: string
+    href?: string
+    featured?: boolean
+    menuType?: "universities" | "tools"
+    items?: NavbarItem[]
   }
 
   export interface SimpleMenuItem {
-    type: "link";
-    name: string;
-    href: string;
-    imageSrc?: string;
+    type: "link"
+    name: string
+    href: string
+    imageSrc?: string
   }
 
   export interface Tool {
-    type: "tool";
-    name: string;
-    href: string;
-    icon: string;
+    type: "tool"
+    name: string
+    href: string
+    icon: string
   }
 
   interface ContactOptions {
     title: string
-    description: string
+    description?: string
     icon: IconType
     actionLink: string
-    bgColor: string
-    shadowColor: string
+    bgColor?: string
+    shadowColor?: string
   }
 }
 

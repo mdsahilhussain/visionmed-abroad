@@ -4,7 +4,8 @@ import * as React from "react"
 import { Select as SelectPrimitive } from "@base-ui/react/select"
 
 import { cn } from "@/lib/utils"
-import { ArrowSeparateVertical, Check, NavArrowDown, NavArrowUp } from "iconoir-react"
+import { ArrowSeparateVertical } from "iconoir-react"
+import { ArrowDown, ArrowUp, Check } from "lucide-react"
 
 const Select = SelectPrimitive.Root
 
@@ -165,7 +166,7 @@ function SelectScrollUpButton({
       )}
       {...props}
     >
-      <NavArrowUp strokeWidth={2} />
+      <ArrowUp strokeWidth={2} />
     </SelectPrimitive.ScrollUpArrow>
   )
 }
@@ -183,7 +184,7 @@ function SelectScrollDownButton({
       )}
       {...props}
     >
-      <NavArrowDown strokeWidth={2} />
+      <ArrowDown strokeWidth={2} />
     </SelectPrimitive.ScrollDownArrow>
   )
 }

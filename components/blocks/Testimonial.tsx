@@ -3,7 +3,7 @@ import { useState } from "react"
 import SectionHeader from "./Header"
 import dynamic from "next/dynamic"
 
-const VideoPlayer = dynamic(() => import("@/components/VideoPlayer"), {
+const VideoPlayer = dynamic(() => import("@/components/blocks/VideoPlayer"), {
   ssr: false,
   loading: () => (
     <div className="aspect-9/16 w-full animate-pulse rounded-2xl bg-muted" />

@@ -14,12 +14,10 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import { contactOptions, testimonials, whyUsPoints } from "@/content/data"
+import {  testimonials, whyUsPoints } from "@/content/data"
 import { image } from "@/content/image"
-import { cn } from "@/lib/utils"
 import { StarSolid } from "iconoir-react"
 import Image from "next/image"
-import Link from "next/link"
 import { partnerUniversities } from "@/content/data/universities"
 import { gallery_images } from "@/content/gallery_image"
 import Testimonial from "@/components/blocks/Testimonial"
@@ -70,7 +68,7 @@ export default function Page() {
       </HeroBackgroundCarousel>
       <section className="w-full">
         <div className="mb-12 flex w-full flex-col gap-12 lg:flex-row lg:items-start">
-          <div className="flex w-full flex-col items-start gap-6 lg:w-3/5">
+          <div className="flex w-full flex-col items-start gap-6">
             <SectionHeader
               eyebrow="Who we are"
               title="Welcome to VisionMed Abroad"
@@ -85,29 +83,6 @@ export default function Page() {
               one of India&apos;s most credible MBBS-abroad consultancies —
               committed to your success, not just your admission.
             </p>
-            <div className="mt-6 grid w-full grid-cols-1 gap-4 md:grid-cols-3">
-              {contactOptions.map((option, index) => (
-                <Link
-                  href={option.actionLink}
-                  className={cn(
-                    option.bgColor,
-                    option.shadowColor,
-                    "flex flex-row items-center gap-4 rounded-xl px-4 py-5 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] lg:flex-col lg:items-start lg:gap-2"
-                  )}
-                  key={index}
-                >
-                  <option.icon className="size-8 text-white" />
-                  <span>
-                    <h2 className="text-md font-bold text-white">
-                      {option.title}
-                    </h2>
-                    <p className="text-sm text-white/90">
-                      {option.description}
-                    </p>
-                  </span>
-                </Link>
-              ))}
-            </div>
           </div>
           <LeadForm variant="hero" />
         </div>
@@ -118,7 +93,7 @@ export default function Page() {
           eyebrow="Our Partner universities"
           title="Only NMC/WHO-approved universities shown"
         />
-        <div className="mt-12 flex gap-6 overflow-x-auto pb-3 scrollbar-hide md:grid md:grid-cols-3 md:overflow-visible">
+        <div className="mt-12 scrollbar-hide flex gap-6 overflow-x-auto pb-3 md:grid md:grid-cols-3 md:overflow-visible">
           {partnerUniversities.map((university) => (
             <UniversityCard key={university.slug} university={university} />
           ))}
@@ -171,7 +146,7 @@ export default function Page() {
           title="Recent Photo Gallery"
           jump_link={true}
         />
-        <div className="mt-12 flex gap-6 overflow-x-auto pb-3 scrollbar-hide md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
+        <div className="mt-12 scrollbar-hide flex gap-6 overflow-x-auto pb-3 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
           {gallery_images.map((image, index) => (
             <div
               key={index}

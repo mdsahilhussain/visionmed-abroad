@@ -1,32 +1,37 @@
-import { BadgeCheck, Building, Calendar, Globe, GraduationCap, Headset, Page, PageStar, Phone, ShieldCheck, User, VideoCamera, Whatsapp } from "iconoir-react"
 import { image } from "./image"
 import { partnerCountries } from "./data/universities"
-
+import {
+  BadgeCheck,
+  Building2,
+  Calendar,
+  FileCheck,
+  Globe2,
+  GraduationCap,
+  Headset,
+  IndianRupee,
+  MessageCircle,
+  MessagesSquare,
+  Phone,
+  ShieldCheck,
+  User,
+  VideoIcon,
+} from "lucide-react"
 export const contactOptions: ContactOptions[] = [
   {
-    title: "Chat on WhatsApp",
-    description: "Chat instantly with a counsellor",
-    icon: Whatsapp,
-    bgColor: "bg-green-500",
-    shadowColor: "shadow-[0_6px_24px_rgba(37,211,102,0.35)]",
-    actionLink: `https://wa.me/919900001111?text=${encodeURIComponent(
+    title: "WhatsApp",
+    icon: MessageCircle,
+    actionLink: `https://wa.me/996755220903?text=${encodeURIComponent(
       "Hello, I am interested in MBBS abroad counselling. Please provide more information."
     )}`,
   },
   {
-    title: "Get Instant Callback",
-    description: "Call instantly with a counsellor",
+    title: "Callback",
     icon: Phone,
-    bgColor: "bg-blue-500",
-    shadowColor: "shadow-[0_6px_24px_rgba(59,130,246,0.35)]",
-    actionLink: "tel:+919900001111",
+    actionLink: "tel:+916200083799",
   },
   {
-    title: "Book Video Counselling",
-    description: "Face-to-face guidance from an expert",
-    icon: VideoCamera,
-    bgColor: "bg-purple-500",
-    shadowColor: "shadow-[0_6px_24px_rgba(168,85,247,0.35)]",
+    title: "Video",
+    icon: VideoIcon,
     actionLink: "https://calendly.com/visionmed-abroad/video-counselling",
   },
 ]
@@ -85,23 +90,30 @@ export const teamMembers: TeamMember[] = [
 
 export const statistics: Statistic[] = [
   {
-    icon: GraduationCap,
-    number: 500,
+    icon: MessagesSquare,
+    number: 1000,
     label: "students guided",
     suffix: "+",
     section: "global",
   },
   {
-    icon: Building,
-    number: 10,
-    label: "NMC/WHO-approved universities",
+    icon: GraduationCap,
+    number: 500,
+    label: "Successful Admissions",
     suffix: "+",
     section: "global",
   },
   {
-    icon: Globe,
+    icon: Building2,
+    number: 10,
+    label: "NMC/WHO-approved Universities",
+    suffix: "+",
+    section: "global",
+  },
+  {
+    icon: Globe2,
     number: 5,
-    label: "countries covered",
+    label: "Study Destinations",
     suffix: "+",
     section: "global",
   },
@@ -196,7 +208,7 @@ export const whyUsPoints: WhyUsPoint[] = [
     order: 1,
   },
   {
-    icon: Page,
+    icon: IndianRupee,
     headline: "Real total cost clarity",
     body: "Tuition, hostel, food, visa, travel and first-year setup are shown before application fees.",
     studentQuote: "My parents had one sheet with every expected rupee.",
@@ -210,7 +222,7 @@ export const whyUsPoints: WhyUsPoint[] = [
     order: 3,
   },
   {
-    icon: PageStar,
+    icon: FileCheck,
     headline: "Document verification discipline",
     body: "Marksheets, passport, offer letter, translation and visa packs are checked through a structured process.",
     studentQuote: "The second review caught an address mismatch.",
@@ -280,26 +292,6 @@ export const accreditation: Accreditation[] = [
   },
 ]
 
-export const blogPosts: BlogPost[] = [
-  {
-    slug: "nmc-rules-mbbs-abroad",
-    title: "NMC rules every MBBS abroad applicant should verify",
-    excerpt: "A practical checklist before choosing a university.",
-    category: "Compliance",
-  },
-  {
-    slug: "mbbs-abroad-fees",
-    title: "How to compare MBBS abroad fees beyond tuition",
-    excerpt: "Hostel, food, visa and travel costs parents should include.",
-    category: "Fees",
-  },
-  {
-    slug: "neet-score-country-fit",
-    title: "Matching NEET score to the right country",
-    excerpt: "How counsellors think about budget, exam plans and climate.",
-    category: "Admissions",
-  },
-]
 
 export const navbarCategories: NavbarCategory[] = [
   {
@@ -311,15 +303,15 @@ export const navbarCategories: NavbarCategory[] = [
     name: "Universities",
     label: "universities",
     featured: true,
-    menuType:"universities",
-    items: partnerCountries
+    menuType: "universities",
+    items: partnerCountries,
   },
   {
     name: "Tools",
     label: "tools",
     featured: true,
-    menuType: 'tools',
-    items: []
+    menuType: "tools",
+    items: [],
   },
   {
     name: "Why Us",

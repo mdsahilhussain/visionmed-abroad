@@ -10,7 +10,7 @@ export default function UniversityMegaMenu({
 }: UniversityMegaMenuProps) {
   return (
     <>
-      <h3 className="text-2xl font-semibold text-orange-500">
+      <h3 className="text-2xl font-semibold text-orange-500 mb-6">
         All universities at a glance
       </h3>
 
@@ -27,9 +27,12 @@ export default function UniversityMegaMenu({
                 className="w-auto"
               />
 
-              <h4 className="text-md font-semibold text-foreground">
+              <Link
+                href={`/mbbs-in-${country.slug}`}
+                className="text-md font-semibold text-foreground transition-colors hover:text-muted-foreground"
+              >
                 MBBS in {country.name}
-              </h4>
+              </Link>
             </div>
 
             <ul className="space-y-3">

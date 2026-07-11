@@ -13,7 +13,7 @@ export default function SectionHeader({
   return (
     <div className="h-fit w-full">
       <span className="text-md flex items-center gap-2 font-bold text-orange-500 uppercase">
-        <hr className="h-1 w-12 bg-orange-500" />
+        <hr className="h-0.5 w-12 bg-orange-500" />
         {eyebrow}
       </span>
       <div className="flex items-end justify-between">

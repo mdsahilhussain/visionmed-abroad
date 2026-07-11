@@ -1,7 +1,6 @@
 "use client"
 
 import { statistics } from "@/content/data"
-import { cn } from "@/lib/utils"
 import {
   useMotionValue,
   useSpring,
@@ -10,6 +9,7 @@ import {
   useInView,
 } from "motion/react"
 import { useEffect, useRef } from "react"
+import { Card } from "../ui/card"
 
 function Counter({ value }: { value: number }) {
   const motionValue = useMotionValue(0)
@@ -30,22 +30,20 @@ export function TrustStatsBar() {
   const inView = useInView(ref, { once: true, margin: "-80px" })
 
   return (
-    <div ref={ref} className="grid grid-cols-2 gap-4 lg:grid-cols-5">
+    <div ref={ref} className="grid w-full grid-cols-3 gap-4 lg:grid-cols-3">
       {statistics.map((stat) => (
-        <div
-          key={stat.label}
-          className={cn(
-            "rounded-2xl border border-border bg-primary-foreground px-4 py-6 shadow-[0_12px_36px_rgba(15,23,42,0.12)]",
-            "group transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
-          )}
-        >
-          <stat.icon className="mb-3 size-6 text-orange-500" />
-          <p className="text-2xl font-black text-orange-500 transition-all duration-300 group-hover:translate-x-4 group-hover:-translate-y-1 group-hover:scale-[1.16] md:text-3xl lg:text-5xl">
-            {inView ? <Counter value={stat.number} /> : 0}
-            {stat.suffix}
-          </p>
-          <p className="mt-1 text-xs capitalize lg:text-sm">{stat.label}</p>
-        </div>
+        <Card key={stat.label} className="p-6 flex-row-reverse justify-between">
+          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-orange-500/10">
+            <stat.icon className="h-6 w-6 text-orange-500" />
+          </div>
+          <div className="flex flex-col items-start gap-1">
+            <p className="text-xl font-black text-orange-500 md:text-3xl lg:text-5xl">
+              {inView ? <Counter value={stat.number} /> : 0}
+              {stat.suffix}
+            </p>
+            <p className="text-xs capitalize lg:text-sm">{stat.label}</p>
+          </div>
+        </Card>
       ))}
     </div>
   )

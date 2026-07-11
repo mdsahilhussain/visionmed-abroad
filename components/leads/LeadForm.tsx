@@ -1,9 +1,9 @@
 "use client"
-
-import { FormEvent, useMemo, useState } from "react"
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
+import { MessageCircle, Phone, ShieldCheck, Video } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Input } from "../ui/input"
+import { Card } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { useMemo, useState, FormEvent } from "react"
 import {
   Select,
   SelectContent,
@@ -12,149 +12,144 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select"
-import { ShieldCheck } from "iconoir-react"
-import { cn } from "@/lib/utils"
-import { teamMembers } from "@/content/data"
 import { partnerUniversities } from "@/content/data/universities"
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
+import { contactOptions, teamMembers } from "@/content/data"
+import Link from "next/link"
+import { cn } from "@/lib/utils"
 
-type LeadFormVariant = "hero" | "inline" | "sidebar" | "exit-popup"
+type LeadFormVariant = "hero" | "sidebar"
 
 interface LeadFormProps {
+  countryName?: string
   variant?: LeadFormVariant
-  defaults?: {
-    neet?: string
-    country?: string
-  }
+  className?: string
 }
 
-export function LeadForm({ variant = "hero", defaults }: LeadFormProps) {
+export function LeadForm({ countryName, variant = "hero" }: LeadFormProps) {
   const [submitted, setSubmitted] = useState(false)
 
+  const counsellor = teamMembers[0] ?? { name: "Our Team", experience: 10 }
   const countries = useMemo(
     () => [...new Set(partnerUniversities.map((u) => u.country))],
     []
   )
-
-  const counsellor = teamMembers[0] ?? { name: "Our Team", experience: 10 }
-
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
     // TODO: Connect with API
     setSubmitted(true)
   }
-
   return (
-    <form
-      onSubmit={onSubmit}
-      aria-label="Free MBBS counselling form"
-      className={cn(
-        "flex h-full w-full flex-col rounded-2xl lg:max-w-md",
-        "border border-border bg-primary-foreground p-5 md:p-6",
-        "backdrop-blur-xl",
-        "shadow-[0_12px_36px_rgba(15,23,42,0.12)]",
-        "transition-all duration-300 hover:shadow-[0_18px_48px_rgba(15,23,42,0.18)]",
-        "transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]",
-        variant === "inline" &&
-          "max-w-none gap-3 md:grid md:grid-cols-[1fr_1fr_auto] md:items-end"
-      )}
-    >
-      {variant === "hero" && (
-        <div className="mb-5 flex items-center gap-3 rounded-xl bg-muted p-3">
-          <Avatar size="lg">
-            <AvatarImage
-              src="https://github.com/shadcn.png"
-              alt={counsellor.name}
-            />
-            <AvatarFallback>{counsellor.name.charAt(0)}</AvatarFallback>
-          </Avatar>
-
-          <div>
-            <p className="font-semibold text-foreground">
-              Free counselling with {counsellor.name}
-            </p>
-            <p className="text-sm text-muted-foreground">
-              {counsellor.experience}+ years of MBBS admissions
-            </p>
-          </div>
-        </div>
-      )}
-
-      <div
-        className={cn("grid gap-4", variant !== "inline" && "md:grid-cols-1")}
-      >
-        <label className="grid gap-1.5 text-sm font-medium">
-          <span>Name</span>
-
-          <Input
-            name="name"
-            placeholder="Student name"
-            aria-label="Student name"
-            required
-          />
-        </label>
-
-        <label className="grid gap-1.5 text-sm font-medium">
-          <span>Phone</span>
-
-          <Input
-            name="phone"
-            placeholder="+91 Phone Number"
-            aria-label="Phone number"
-            pattern="[0-9+ ]{10,14}"
-            required
-          />
-        </label>
-
-        {variant !== "inline" && (
-          <>
-            <label className="grid gap-1.5 text-sm font-medium">
-              <span>NEET Score</span>
-
-              <Input
-                name="neet"
-                placeholder="Optional"
-                defaultValue={defaults?.neet}
-                inputMode="numeric"
-                aria-label="NEET score"
+    <Card className={cn("p-6 w-full", variant === "sidebar" && "sticky top-24 border border-muted-foreground/40")}>
+      <form onSubmit={onSubmit} aria-label="Free MBBS counselling form">
+        {variant === "hero" ? (
+          <div className="mb-5 flex items-center gap-3 rounded-xl bg-muted p-3">
+            <Avatar size="lg">
+              <AvatarImage
+                src="https://github.com/shadcn.png"
+                alt={counsellor.name}
               />
-            </label>
+              <AvatarFallback>{counsellor.name.charAt(0)}</AvatarFallback>
+            </Avatar>
 
-            <div className="grid gap-1.5">
-              <span className="text-sm font-medium">Preferred Country</span>
-              <Select name="country" defaultValue={defaults?.country}>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select country" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    {countries.map((country) => (
-                      <SelectItem key={country} value={country}>
-                        {country}
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
+            <div>
+              <p className="font-semibold text-foreground">
+                Free counselling with {counsellor.name}
+              </p>
+              <p className="text-sm text-muted-foreground">
+                {counsellor.experience}+ years of MBBS admissions
+              </p>
             </div>
+          </div>
+        ) : (
+          <>
+            <h3 className="text-base font-semibold text-foreground">
+              Free counselling for {countryName}
+            </h3>
+            <p className="mt-1 text-xs text-muted-foreground/80">
+              Get a fee breakdown and university shortlist within 24 hours.
+            </p>
           </>
         )}
-      </div>
 
-      {/* Push CTA to bottom */}
-      <div className="mt-auto pt-5">
-        <Button
-          type="submit"
-          className={cn("w-full", variant === "inline" && "md:w-auto")}
-        >
-          {submitted ? "Request Received ✓" : "Book Free Session"}
-        </Button>
+        <div className="mt-5 space-y-3">
+          <label className="grid gap-1.5 text-sm font-medium">
+            <span>Name</span>
+            <Input
+              name="name"
+              placeholder="Student name"
+              aria-label="Student name"
+              required
+            />
+          </label>
 
-        <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-muted-foreground">
-          <ShieldCheck className="size-4 text-green-500" />
-          We never share your data.
-        </p>
+          <label className="grid gap-1.5 text-sm font-medium">
+            <span>Phone</span>
+            <Input
+              name="phone"
+              placeholder="+91 Phone Number"
+              aria-label="Phone number"
+              inputMode="numeric"
+              pattern="[0-9+ ]{10,14}"
+              required
+            />
+          </label>
+
+          <label className="grid gap-1.5 text-sm font-medium">
+            <span>Neet Score (optional)</span>
+            <Input
+                name="neet"
+                placeholder="450"
+                inputMode="numeric"
+                aria-label="NEET score"
+            />
+          </label>
+
+          {variant === "hero" && (
+          <label className="grid gap-1.5 text-sm font-medium">
+          <span>Preferred Country</span>
+            <Select name="country" required>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Select country" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {countries.map((country) => (
+                    <SelectItem key={country} value={country}>
+                      {country}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </label>
+          )}
+          <Button className="w-full">
+            {submitted ? "Request Received ✓" : "Book Free Session"}
+          </Button>
+          <p className="flex items-center justify-center gap-1.5 text-[11px] text-green-500">
+            <ShieldCheck className="h-3.5 w-3.5 text-green-500" />
+            We never share your data.
+          </p>
+        </div>
+      </form>
+
+      <div className="mt-5 grid grid-cols-3 gap-2 border-t border-border pt-5">
+        {contactOptions.map((option, index) => (
+          <Button key={index} variant="ghost" className="py-8">
+            <Link
+              href={option.actionLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full flex-col items-center gap-1.5"
+            >
+              <option.icon className="h-4 w-4" />
+              <span className="text-[10px]">{option.title}</span>
+            </Link>
+          </Button>
+        ))}
       </div>
-    </form>
+    </Card>
   )
 }
