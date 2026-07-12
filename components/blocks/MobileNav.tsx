@@ -190,9 +190,12 @@ export default function MobileNav() {
                                     <div className="space-y-6 py-4 pl-4">
                                       {partnerCountries.map((country) => (
                                         <div key={country.id}>
-                                          <h4 className="mb-3 text-sm font-semibold tracking-wide text-primary uppercase">
-                                            {country.name}
-                                          </h4>
+                                          <Link
+                                            href={`/mbbs-in-${country.slug}`}
+                                            className="mb-3 text-sm font-semibold tracking-wide text-primary uppercase"
+                                          >
+                                            MBBS in {country.name}
+                                          </Link>
 
                                           <div className="space-y-2">
                                             {country.universities.map(
@@ -228,7 +231,11 @@ export default function MobileNav() {
                     animate="visible"
                     className="mt-10"
                   >
-                    <Button size="lg" className="w-full rounded-xl" type="button">
+                    <Button
+                      size="lg"
+                      className="w-full rounded-xl"
+                      type="button"
+                    >
                       <Link href="/contact" onClick={() => setOpen(false)}>
                         Book Free Counselling
                       </Link>

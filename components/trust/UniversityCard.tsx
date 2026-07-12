@@ -57,7 +57,7 @@ export function UniversityCard({
           </div>
         </dl>
         <Link
-          href={`/university/${university.slug}`}
+          href={`/mbbs-in-${university.country.toLocaleLowerCase()}/${university.slug}`}
           className={cn(
             buttonVariants({
               variant: "default",

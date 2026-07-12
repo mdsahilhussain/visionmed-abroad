@@ -167,15 +167,15 @@ export const partnerUniversities: PartnerUniversity[] = [
     slug: "mari-state-university-medical-faculty",
   },
   {
-    logo: "/universities/yaroslavl.webp",
-    name: "Yaroslavl State Medical University",
+    logo: "/universities/tula.webp",
+    name: "Tula State University",
     country: "Russia",
-    city: "Yaroslavl",
+    city: "Tula",
     verifiedPartner: true,
-    studentsPlaced: 410,
-    feeRangePerYear: "INR 4.5L-5.3L",
+    studentsPlaced: 580,
+    feeRangePerYear: "INR 3.8L-4.8L",
     nmcApproved: true,
-    slug: "yaroslavl-state-medical-university",
+    slug: "tula-state-university",
   },
   {
     logo: "/universities/pskov.webp",
@@ -243,7 +243,7 @@ export const partnerUniversities: PartnerUniversity[] = [
     nmcApproved: true,
     slug: "bukhara-state-medical-institute",
   },
-];
+]
 
 export const partnerCountries: Country[] = [
   {
@@ -265,8 +265,8 @@ export const partnerCountries: Country[] = [
         slug: "mari-state-university-medical-faculty",
       },
       {
-        name: "Yaroslavl State Medical University",
-        slug: "yaroslavl-state-medical-university",
+        name: "Tula State University",
+        slug: "tula-state-university",
       },
       {
         name: "Pskov State University, Medical Faculty",
@@ -309,6 +309,14 @@ export const partnerCountries: Country[] = [
       {
         name: "Bukhara State Medical Institute",
         slug: "bukhara-state-medical-institute",
+      },
+      {
+        name: "Andijan State Medical Institute",
+        slug: "andijan-state-medical-institute",
+      },
+      {
+        name: "Namangan State Medical Institute",
+        slug: "namangan-state-medical-institute",
       },
     ],
   },
