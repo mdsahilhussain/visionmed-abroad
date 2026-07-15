@@ -48,15 +48,15 @@ export function CountryOverview({
           return (
             <Card
               key={advantage.title}
-              className="p-6 transition-colors hover:border-orange-500/40 hover:bg-muted/5 hover:shadow-lg hover:shadow-orange-500/10"
+              className="group p-6 transition-all hover:-translate-y-1 hover:border-orange-300 hover:shadow-lg hover:shadow-orange-100"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500/10">
-                <Icon className="h-5 w-5 text-orange-500" />
+              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-orange-100 text-orange-600 transition-colors group-hover:bg-orange-600 group-hover:text-white">
+                <Icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-4 text-base font-semibold text-foreground">
+              <h3 className="text-base font-bold text-foreground">
                 {advantage.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground/80">
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {advantage.description}
               </p>
             </Card>

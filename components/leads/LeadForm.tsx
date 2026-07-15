@@ -1,6 +1,6 @@
 "use client"
-import { MessageCircle, Phone, ShieldCheck, Video } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import {  ShieldCheck, } from "lucide-react"
+import { Button, buttonVariants } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { useMemo, useState, FormEvent } from "react"
@@ -41,7 +41,13 @@ export function LeadForm({ countryName, variant = "hero" }: LeadFormProps) {
     setSubmitted(true)
   }
   return (
-    <Card className={cn("p-6 w-full", variant === "sidebar" && "sticky top-24 border border-muted-foreground/40")}>
+    <Card
+      className={cn(
+        "w-full p-6",
+        variant === "sidebar" &&
+          "sticky top-24 border border-muted-foreground/40"
+      )}
+    >
       <form onSubmit={onSubmit} aria-label="Free MBBS counselling form">
         {variant === "hero" ? (
           <div className="mb-5 flex items-center gap-3 rounded-xl bg-muted p-3">
@@ -99,31 +105,31 @@ export function LeadForm({ countryName, variant = "hero" }: LeadFormProps) {
           <label className="grid gap-1.5 text-sm font-medium">
             <span>Neet Score (optional)</span>
             <Input
-                name="neet"
-                placeholder="450"
-                inputMode="numeric"
-                aria-label="NEET score"
+              name="neet"
+              placeholder="450"
+              inputMode="numeric"
+              aria-label="NEET score"
             />
           </label>
 
           {variant === "hero" && (
-          <label className="grid gap-1.5 text-sm font-medium">
-          <span>Preferred Country</span>
-            <Select name="country" required>
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select country" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  {countries.map((country) => (
-                    <SelectItem key={country} value={country}>
-                      {country}
-                    </SelectItem>
-                  ))}
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </label>
+            <label className="grid gap-1.5 text-sm font-medium">
+              <span>Preferred Country</span>
+              <Select name="country" required>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select country" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    {countries.map((country) => (
+                      <SelectItem key={country} value={country}>
+                        {country}
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            </label>
           )}
           <Button className="w-full">
             {submitted ? "Request Received ✓" : "Book Free Session"}
@@ -137,17 +143,22 @@ export function LeadForm({ countryName, variant = "hero" }: LeadFormProps) {
 
       <div className="mt-5 grid grid-cols-3 gap-2 border-t border-border pt-5">
         {contactOptions.map((option, index) => (
-          <Button key={index} variant="ghost" className="py-8">
-            <Link
-              href={option.actionLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex w-full flex-col items-center gap-1.5"
-            >
-              <option.icon className="h-4 w-4" />
-              <span className="text-[10px]">{option.title}</span>
-            </Link>
-          </Button>
+          <Link
+            key={index}
+            href={option.actionLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
+              buttonVariants({
+                variant: "ghost",
+                size:"sm"
+              }),
+              "py-6"
+            )}
+          >
+            <option.icon className="h-4 w-4" />
+            <span className="text-xs">{option.title}</span>
+          </Link>
         ))}
       </div>
     </Card>

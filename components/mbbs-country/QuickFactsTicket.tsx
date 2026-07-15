@@ -18,12 +18,6 @@ const FIELDS: Array<{
   { label: "Living Cost", key: "livingCost" },
 ]
 
-/**
- * Renders quick facts as a boarding-pass / ticket stub: a main body with
- * ticket "fields" and a perforated stub carrying route + intake + capital.
- * This is the page's signature visual — it reads as a literal travel
- * document, which is what a student is actually applying for.
- */
 export function QuickFactsTicket({
   quickFacts,
   countryName,

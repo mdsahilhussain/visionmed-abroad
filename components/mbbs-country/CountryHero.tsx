@@ -17,7 +17,7 @@ export function CountryHero({ data }: CountryHeroProps) {
         className="pointer-events-none absolute -top-40 left-1/2 h-140 w-225 -translate-x-1/2 rounded-full bg-orange-500/10 blur-[120px]"
       />
 
-      <div className="relative px-6 py-20 sm:py-24">
+      <div className="relative px-6 py-20 sm:py-24 max-sm:px-0">
         <Breadcrumb items={breadcrumb} />
         <div className="mb-5 flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-orange-500 uppercase">
           <span className="h-px w-8 bg-orange-500" />

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { AnimatePresence, motion, Variants } from "motion/react"
 import { Menu, NavArrowDown, Xmark } from "iconoir-react"
 
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 
 import { navbarCategories } from "@/content/data"
 import { partnerCountries } from "@/content/data/universities"
@@ -231,15 +231,18 @@ export default function MobileNav() {
                     animate="visible"
                     className="mt-10"
                   >
-                    <Button
-                      size="lg"
-                      className="w-full rounded-xl"
-                      type="button"
+                    <Link
+                      href="/contact"
+                      onClick={() => setOpen(false)}
+                      className={cn(
+                        buttonVariants({
+                          size: "lg",
+                          className: "w-full rounded-xl",
+                        })
+                      )}
                     >
-                      <Link href="/contact" onClick={() => setOpen(false)}>
-                        Book Free Counselling
-                      </Link>
-                    </Button>
+                      Book Free Counselling
+                    </Link>
                   </motion.div>
                 </div>
               </div>

@@ -42,7 +42,6 @@ export const kyrgyzstanData: MbbsCountryData = {
   overview: {
     title: "Why Study MBBS in Kyrgyzstan?",
     description: `Kyrgyzstan has become one of the most popular destinations for Indian students pursuing MBBS abroad due to its affordable tuition fees, globally recognized medical universities, and English-medium programs. Every year, thousands of international students choose Kyrgyzstan because of its quality medical education, experienced faculty, modern laboratories, and extensive clinical exposure.
-
 Medical universities in Kyrgyzstan follow international academic standards and provide practical training through affiliated teaching hospitals. Many universities are recognized by the National Medical Commission (NMC), World Directory of Medical Schools (WDOMS), WHO, FAIMER, and ECFMG, enabling graduates to pursue licensing examinations such as NEXT, USMLE, and PLAB after completing their degree.`,
   },
 
