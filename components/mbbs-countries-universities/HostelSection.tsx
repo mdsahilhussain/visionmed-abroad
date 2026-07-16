@@ -6,10 +6,10 @@ export function HostelSection({ university }: { university: University }) {
 
   return (
     <section className="w-full">
-      <div className="mb-10 max-w-xl">
+      <div className="mb-10 w-full">
         <div className="mb-4 flex items-center gap-2">
           <span className="h-px w-8 bg-orange-500" />
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-600">
+          <span className="text-xs font-semibold tracking-[0.18em] text-orange-600 uppercase">
             Living on campus
           </span>
         </div>
@@ -43,7 +43,10 @@ export function HostelSection({ university }: { university: University }) {
           <h3 className="text-base font-bold text-foreground">Facilities</h3>
           <ul className="mt-4 space-y-2.5">
             {hostel.facilities.map((facility) => (
-              <li key={facility} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+              <li
+                key={facility}
+                className="flex items-start gap-2.5 text-sm text-muted-foreground"
+              >
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-orange-600" />
                 {facility}
               </li>

@@ -21,7 +21,7 @@ export function FeeStructure({ university }: { university: University }) {
   return (
     <section className="container mx-auto">
       <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
-        <div className="max-w-xl">
+        <div className="w-full">
           <div className="mb-4 flex items-center gap-2">
             <span className="h-px w-8 bg-orange-500" />
             <span className="text-xs font-semibold tracking-[0.18em] text-orange-600 uppercase">
@@ -32,7 +32,7 @@ export function FeeStructure({ university }: { university: University }) {
             {feeStructure.title}
           </h2>
         </div>
-        <div className="flex items-center max-sm:items-start gap-2 rounded-full max-sm:rounded-2xl border border-border bg-muted/50 px-4 py-2 text-xs text-muted-foreground">
+        <div className="flex items-center gap-2 rounded-full border border-border bg-muted/50 px-4 py-2 text-xs text-muted-foreground max-sm:items-start max-sm:rounded-2xl">
           <Info className="size-4 shrink-0 max-sm:mt-1" />
           {feeStructure.note}
         </div>

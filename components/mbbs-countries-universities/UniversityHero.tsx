@@ -33,7 +33,7 @@ export function UniversityHero({ university }: { university: University }) {
               {hero.universityName}
             </h1>
 
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-5 w-full text-lg leading-relaxed text-muted-foreground">
               {hero.tagline}
             </p>
 
@@ -55,7 +55,7 @@ export function UniversityHero({ university }: { university: University }) {
               </Badge>
             </div>
 
-            <p className="text-zsm mt-4 text-muted-foreground">
+            <p className="text-sm mt-4 text-orange-500">
               {hero.applicationDeadline}
             </p>
 

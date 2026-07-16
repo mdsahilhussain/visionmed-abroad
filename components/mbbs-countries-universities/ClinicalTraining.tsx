@@ -6,7 +6,7 @@ export function ClinicalTraining({ university }: { university: University }) {
 
   return (
     <section className="w-full">
-      <div className="mb-10 max-w-xl">
+      <div className="mb-10 w-full">
         <div className="mb-4 flex items-center gap-2">
           <span className="h-px w-8 bg-orange-500" />
           <span className="text-xs font-semibold tracking-[0.18em] text-orange-400 uppercase">

@@ -20,7 +20,7 @@ export function RelatedUniversities({
           Explore more
         </span>
       </div>
-      <h2 className="mb-8 max-w-2xl text-3xl font-extrabold tracking-tight text-foreground">
+      <h2 className="mb-8 w-full text-3xl font-extrabold tracking-tight text-foreground">
         Other universities in Kyrgyzstan
       </h2>
 

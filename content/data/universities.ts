@@ -164,7 +164,7 @@ export const partnerUniversities: PartnerUniversity[] = [
     studentsPlaced: 440,
     feeRangePerYear: "INR 3.9L-4.8L",
     nmcApproved: true,
-    slug: "mari-state-university-medical-faculty",
+    slug: "mari-state-university",
   },
   {
     logo: "/universities/tula.webp",
@@ -186,7 +186,7 @@ export const partnerUniversities: PartnerUniversity[] = [
     studentsPlaced: 260,
     feeRangePerYear: "INR 3.6L-4.4L",
     nmcApproved: true,
-    slug: "pskov-state-university-medical-faculty",
+    slug: "pskov-state-university",
   },
   {
     logo: "/universities/tver.webp",
@@ -219,7 +219,7 @@ export const partnerUniversities: PartnerUniversity[] = [
     studentsPlaced: 780,
     feeRangePerYear: "INR 2.8L-3.5L",
     nmcApproved: true,
-    slug: "osh-state-university-international-medical-faculty",
+    slug: "osh-state-university",
   },
   {
     logo: "/universities/jalal-abad.webp",
@@ -262,7 +262,7 @@ export const partnerCountries: Country[] = [
       },
       {
         name: "Mari State University, Medical Faculty",
-        slug: "mari-state-university-medical-faculty",
+        slug: "mari-state-university",
       },
       {
         name: "Tula State University",
@@ -270,7 +270,7 @@ export const partnerCountries: Country[] = [
       },
       {
         name: "Pskov State University, Medical Faculty",
-        slug: "pskov-state-university-medical-faculty",
+        slug: "pskov-state-university",
       },
       {
         name: "Tver State Medical University",
