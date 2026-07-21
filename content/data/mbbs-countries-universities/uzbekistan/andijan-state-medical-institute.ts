@@ -53,8 +53,8 @@ export const andijanStateMedicalInstitute: University = {
     city: "Andijan",
     established: "1955",
     type: "Government Medical Institute",
-    logo: "/images/universities/andijan-state-medical-institute/logo.webp",
-    coverImage: "/universities/andijan-state-medical-institute.webp",
+    logo: "/images/universities/andijan/andijan-logo.webp",
+    coverImage: "/images/universities/andijan/andijan-thumbnail.webp",
     tagline:
       "One of Uzbekistan's oldest government medical institutes, offering globally recognized English-medium MBBS education with strong clinical exposure and modern medical training.",
     admissionStatus: "Admissions Open",

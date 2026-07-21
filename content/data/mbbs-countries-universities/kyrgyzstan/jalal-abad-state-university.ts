@@ -51,8 +51,8 @@ export const jalalAbadStateUniversity: University = {
     city: "Jalal-Abad",
     established: "1993",
     type: "Public University",
-    logo: "/images/universities/jalal-abad-state-university/logo.webp",
-    coverImage: "/universities/jalal-abad.webp",
+    logo: "/images/universities/jalal-abad/jalal-abad-logo.webp",
+    coverImage: "/images/universities/jalal-abad/jalal-abad-thumbnail.webp",
     tagline:
       "A rapidly growing public medical university offering affordable English-medium MBBS education for international students.",
     admissionStatus: "Admissions Open",

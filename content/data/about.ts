@@ -1,4 +1,3 @@
-// data/about.ts
 import type { AboutPageData } from "@/types/about"
 
 export const aboutPage: AboutPageData = {

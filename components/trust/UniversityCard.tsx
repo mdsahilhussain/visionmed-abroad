@@ -12,7 +12,7 @@ export function UniversityCard({
   return (
     <article className="group min-w-70 rounded-2xl border border-border p-2 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_12px_36px_rgba(15,23,42,0.12)]">
       <Image
-        src={university.logo}
+        src={university.thumbnail}
         alt={`${university.name} thumbnail`}
         width={1200}
         height={675}

@@ -52,8 +52,8 @@ export const tverStateMedicalUniversity: University = {
     city: "Tver",
     established: "1936",
     type: "Public Medical University",
-    logo: "/images/universities/tver-state-medical-university/logo.webp",
-    coverImage: "/universities/tver.webp",
+    logo: "/images/universities/tver/tver-logo.webp",
+    coverImage: "/images/universities/tver/tver-thumbnail.webp",
     tagline:
       "One of Russia's oldest and most prestigious government medical universities, renowned for quality medical education, clinical excellence, and global recognition.",
     admissionStatus: "Admissions Open",

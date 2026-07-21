@@ -52,8 +52,8 @@ export const namanganStateMedicalInstitute: University = {
     city: "Namangan",
     established: "2021",
     type: "Government Medical University",
-    logo: "/images/universities/namangan-state-medical-university/logo.webp",
-    coverImage: "/universities/namangan-state-medical-university.webp",
+    logo: "/images/universities/namangan/namangan-logo.webp",
+    coverImage: "/images/universities/namangan/namangan-thumbnail.webp",
     tagline:
       "A modern government medical university in Uzbekistan offering English-medium MBBS with affordable tuition, advanced laboratories, and strong clinical exposure.",
     admissionStatus: "Admissions Open",

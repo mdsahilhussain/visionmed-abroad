@@ -1,5 +1,5 @@
-import { image } from "./image"
-import { partnerCountries } from "./data/universities"
+import { landing_couselling_process_steps } from "../images/brand-images/brand"
+import { partnerCountriesUniversities } from "./mbbs-countries-universities"
 import {
   BadgeCheck,
   Building2,
@@ -16,6 +16,7 @@ import {
   User,
   VideoIcon,
 } from "lucide-react"
+
 export const contactOptions: ContactOptions[] = [
   {
     title: "WhatsApp",
@@ -240,28 +241,28 @@ export const whyUsPoints: WhyUsPoint[] = [
 export const processSteps: ProcessStep[] = [
   {
     number: 1,
-    imageSrc: image.step_1,
+    imageSrc: landing_couselling_process_steps.couselling_process_step1,
     title: "Counselling",
     description:
       "A senior counsellor maps NEET score, budget, country preference and family priorities.",
   },
   {
     number: 2,
-    imageSrc: image.step_2,
+    imageSrc: landing_couselling_process_steps.couselling_process_step2,
     title: "Shortlist",
     description:
       "You receive only NMC/WHO-approved options with total cost and risk notes.",
   },
   {
     number: 3,
-    imageSrc: image.step_3,
+    imageSrc: landing_couselling_process_steps.couselling_process_step3,
     title: "Application",
     description:
       "We prepare and track the application pack, offer letter and university communication.",
   },
   {
     number: 4,
-    imageSrc: image.step_4,
+    imageSrc: landing_couselling_process_steps.couselling_process_step4,
     title: "Visa",
     description:
       "Documentation, interview prep and departure steps are verified before travel.",
@@ -292,7 +293,6 @@ export const accreditation: Accreditation[] = [
   },
 ]
 
-
 export const navbarCategories: NavbarCategory[] = [
   {
     name: "About us",
@@ -304,7 +304,7 @@ export const navbarCategories: NavbarCategory[] = [
     label: "universities",
     featured: true,
     menuType: "universities",
-    items: partnerCountries,
+    items: partnerCountriesUniversities,
   },
   {
     name: "Tools",

@@ -50,8 +50,8 @@ export const pskovStateUniversity: University = {
     city: "Pskov",
     established: "2010",
     type: "Public University",
-    logo: "/images/universities/pskov-state-university/logo.webp",
-    coverImage: "/universities/pskov.webp",
+    logo: "/images/universities/pskov/pskov-logo.webp",
+    coverImage: "/images/universities/pskov/pskov-thumbnail.webp",
     tagline:
       "A modern Russian public university offering internationally recognized English-medium medical education with advanced laboratories and clinical training.",
     admissionStatus: "Admissions Open",

@@ -52,8 +52,8 @@ export const permStateMedicalUniversity: University = {
     city: "Perm",
     established: "1916",
     type: "Public Medical University",
-    logo: "/images/universities/perm-state-medical-university/logo.webp",
-    coverImage: "/universities/perm.webp",
+    logo: "/images/universities/perm/perm-logo.webp",
+    coverImage: "/images/universities/perm/perm-thumbnail.webp",
     tagline:
       "One of Russia's oldest and most prestigious government medical universities with over a century of excellence in medical education.",
     admissionStatus: "Admissions Open",

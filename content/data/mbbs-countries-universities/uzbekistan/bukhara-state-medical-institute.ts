@@ -53,8 +53,8 @@ export const bukharaStateMedicalInstitute: University = {
     city: "Bukhara",
     established: "1990",
     type: "Government Medical Institute",
-    logo: "/images/universities/bukhara-state-medical-institute/logo.webp",
-    coverImage: "/universities/bukhara-state-medical-institute.webp",
+    logo: "/images/universities/bukhara/bukhara-logo.webp",
+    coverImage: "/images/universities/bukhara/bukhara-thumbnail.webp",
     tagline:
       "One of Uzbekistan's premier government medical institutes, delivering globally recognized English-medium medical education with modern simulation-based learning and extensive clinical training.",
     admissionStatus: "Admissions Open",

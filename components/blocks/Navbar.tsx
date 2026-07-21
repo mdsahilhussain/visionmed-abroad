@@ -7,13 +7,12 @@ import { NavArrowDown } from "iconoir-react"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
-import { image } from "@/content/image"
-
+import { landing_brand_images } from "@/content/images/brand-images/brand"
 import { useOnClickOutside } from "@/hooks/use-on-click-outside"
 import UniversityMegaMenu from "./UniversityMegaMenu"
-import { partnerCountries } from "@/content/data/universities"
-import { navbarCategories } from "@/content/data"
+import { navbarCategories } from "@/content/data/data"
 import MobileNav from "./MobileNav"
+import { partnerCountriesUniversities } from "@/content/data/mbbs-countries-universities"
 
 const Navbar = () => {
   return (
@@ -26,7 +25,7 @@ const Navbar = () => {
           className="flex shrink-0 items-center gap-3"
         >
           <Image
-            src={image.brand_logo}
+            src={landing_brand_images.brand_logo}
             alt="Vision Study MBBS Abroad"
             width={64}
             height={64}
@@ -151,7 +150,9 @@ const DesktopNav = () => {
                   <div className="absolute top-full left-1/2 z-50 w-225 -translate-x-1/2 pt-5">
                     <div className="rounded-3xl border bg-background p-10 shadow-2xl">
                       {category.menuType === "universities" && (
-                        <UniversityMegaMenu countries={partnerCountries} />
+                        <UniversityMegaMenu
+                          countries={partnerCountriesUniversities}
+                        />
                       )}
                     </div>
                   </div>

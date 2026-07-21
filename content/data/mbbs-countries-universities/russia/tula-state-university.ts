@@ -50,8 +50,8 @@ export const tulaStateUniversity: University = {
     city: "Tula",
     established: "1930",
     type: "Public University",
-    logo: "/images/universities/tula-state-university/logo.webp",
-    coverImage: "/universities/tula.webp",
+    logo: "/images/universities/tula/tula-logo.webp",
+    coverImage: "/images/universities/tula/tula-thumbnail.webp",
     tagline:
       "A leading public university in Russia offering globally recognized English-medium medical education with strong clinical training and modern research facilities.",
     admissionStatus: "Admissions Open",

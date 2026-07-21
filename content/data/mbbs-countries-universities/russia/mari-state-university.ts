@@ -50,8 +50,8 @@ export const mariStateUniversity: University = {
     city: "Yoshkar-Ola",
     established: "1972",
     type: "Public University",
-    logo: "/images/universities/mari-state-university/logo.webp",
-    coverImage: "/universities/mari.webp",
+    logo: "/images/universities/mari/mari-logo.webp",
+    coverImage: "/images/universities/mari/mari-thumbnail.webp",
     tagline:
       "A prestigious public university in Russia offering internationally recognized English-medium medical education with modern facilities and strong clinical training.",
     admissionStatus: "Admissions Open",
