@@ -1,15 +1,16 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { universities_images } from "@/content/universities_image" // adjust the import path
+import { landing_universities_background } from "@/content/images/brand-images/brand"
 import { cn } from "@/lib/utils"
 
 const HERO_IMAGES = [
-  universities_images.OSH_SMU.src,
-  universities_images.PERM_SMU.src,
-  universities_images.PSKOV_SMU.src,
-  universities_images.TVER_SMU.src,
-  universities_images.MARI_SMU.src,
+  landing_universities_background.osh.src,
+  landing_universities_background.perm.src,
+  landing_universities_background.bukhara.src,
+  landing_universities_background.jalal.src,
+  landing_universities_background.mari.src,
+  landing_universities_background.pskov.src,
 ]
 
 const SLIDE_DURATION = 3000

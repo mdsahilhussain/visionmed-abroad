@@ -52,8 +52,8 @@ export const omskStateMedicalUniversity: University = {
     city: "Omsk",
     established: "1920",
     type: "Public Medical University",
-    logo: "/images/universities/omsk-state-medical-university/logo.webp",
-    coverImage: "/universities/omsk.webp",
+    logo: "/images/universities/omsk/omsk-logo.webp",
+    coverImage: "/images/universities/omsk/omsk-thumbnail.webp",
     tagline:
       "One of Russia's oldest and most respected government medical universities, offering internationally recognized medical education with strong clinical exposure.",
     admissionStatus: "Admissions Open",

@@ -1,6 +1,6 @@
 "use client"
 
-import { statistics } from "@/content/data"
+import { statistics } from "@/content/data/data"
 import {
   useMotionValue,
   useSpring,

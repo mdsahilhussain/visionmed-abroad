@@ -14,7 +14,7 @@ import {
 } from "../ui/select"
 import { ShieldCheck } from "iconoir-react"
 import { cn } from "@/lib/utils"
-import { teamMembers } from "@/content/data"
+import { teamMembers } from "@/content/data/data"
 import { partnerUniversities } from "@/content/data/universities"
 
 type LeadFormVariant = "hero" | "inline" | "sidebar" | "exit-popup"

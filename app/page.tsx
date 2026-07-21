@@ -14,13 +14,14 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import {  testimonials, whyUsPoints } from "@/content/data"
-import { image } from "@/content/image"
+import { testimonials, whyUsPoints } from "@/content/data/data"
 import { StarSolid } from "iconoir-react"
 import Image from "next/image"
-import { partnerUniversities } from "@/content/data/universities"
-import { gallery_images } from "@/content/gallery_image"
+
 import Testimonial from "@/components/blocks/Testimonial"
+import { partnerUniversities } from "@/content/data/mbbs-countries-universities"
+import { landing_couselling_process_steps } from "@/content/images/brand-images/brand"
+import { landing_gallery_images } from "@/content/images/brand-images/brand-gallery-images"
 
 const ITEMS_COUNT = Array.from({ length: 5 })
 
@@ -130,7 +131,7 @@ export default function Page() {
             </Button>
           </div>
           <Image
-            src={image.counselling_process}
+            src={landing_couselling_process_steps.couselling_process}
             alt="counselling process image"
             width={415}
             height={100}
@@ -147,7 +148,7 @@ export default function Page() {
           jump_link={true}
         />
         <div className="mt-12 scrollbar-hide flex gap-6 overflow-x-auto pb-3 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
-          {gallery_images.map((image, index) => (
+          {landing_gallery_images.map((image, index) => (
             <div
               key={index}
               className="relative h-56 w-70 shrink-0 overflow-hidden rounded-2xl border border-border md:h-64 md:w-full"

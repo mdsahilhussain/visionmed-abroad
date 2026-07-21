@@ -36,7 +36,7 @@ declare global {
   }
 
   interface PartnerUniversity {
-    logo: string
+    thumbnail: string
     name: string
     country: string
     city: string

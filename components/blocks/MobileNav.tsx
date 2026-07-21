@@ -7,8 +7,8 @@ import { Menu, NavArrowDown, Xmark } from "iconoir-react"
 
 import { buttonVariants } from "@/components/ui/button"
 
-import { navbarCategories } from "@/content/data"
-import { partnerCountries } from "@/content/data/universities"
+import { navbarCategories } from "@/content/data/data"
+import { partnerCountriesUniversities } from "@/content/data/mbbs-countries-universities"
 import { cn } from "@/lib/utils"
 
 const overlayVariants: Variants = {
@@ -188,7 +188,7 @@ export default function MobileNav() {
                                     className="overflow-hidden"
                                   >
                                     <div className="space-y-6 py-4 pl-4">
-                                      {partnerCountries.map((country) => (
+                                      {partnerCountriesUniversities.map((country) => (
                                         <div key={country.id}>
                                           <Link
                                             href={`/mbbs-in-${country.slug}`}

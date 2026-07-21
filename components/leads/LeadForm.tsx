@@ -12,11 +12,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select"
-import { partnerUniversities } from "@/content/data/universities"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
-import { contactOptions, teamMembers } from "@/content/data"
+import { contactOptions, teamMembers } from "@/content/data/data"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
+import { partnerUniversities } from "@/content/data/mbbs-countries-universities"
 
 type LeadFormVariant = "hero" | "sidebar"
 

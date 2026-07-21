@@ -52,8 +52,8 @@ export const orenburgStateMedicalUniversity: University = {
     city: "Orenburg",
     established: "1944",
     type: "Public Medical University",
-    logo: "/images/universities/orenburg-state-medical-university/logo.webp",
-    coverImage: "/universities/orenburg.webp",
+    logo: "/images/universities/orenburg/orenburg-logo.webp",
+    coverImage: "/images/universities/orenburg/orenburg-thumbnail.webp",
     tagline:
       "One of Russia's leading government medical universities, renowned for quality medical education, clinical excellence, and a strong Indian student community.",
     admissionStatus: "Admissions Open",
